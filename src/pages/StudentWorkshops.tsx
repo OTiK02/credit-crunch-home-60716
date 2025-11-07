@@ -216,7 +216,10 @@ export default function StudentWorkshops() {
                       </div>
                     </div>
 
-                    <Button className="w-full mt-4">
+                    <Button 
+                      className="w-full mt-4"
+                      onClick={() => navigate(`/dashboard/student/workshops/${enrollment.workshop_id}`)}
+                    >
                       Continue Workshop
                     </Button>
                   </CardContent>

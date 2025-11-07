@@ -44,6 +44,7 @@ const StudentInternships = lazy(() => import("./pages/StudentInternships"));
 const StudentInternshipDetails = lazy(() => import("./pages/StudentInternshipDetails"));
 const StudentEvents = lazy(() => import("./pages/StudentEvents"));
 const StudentWorkshops = lazy(() => import("./pages/StudentWorkshops"));
+const StudentWorkshopDetail = lazy(() => import("./pages/StudentWorkshopDetail"));
 const StudentCoursesAll = lazy(() => import("./pages/StudentCoursesAll"));
 const StudentCertificates = lazy(() => import("./pages/StudentCertificates"));
 const JudgeDashboard = lazy(() => import("./pages/JudgeDashboard"));
@@ -143,6 +144,7 @@ const App = () => (
           <Route path="/dashboard/student" element={<ProtectedRoute><StudentDashboard /></ProtectedRoute>} />
           <Route path="/dashboard/student/events" element={<ProtectedRoute><StudentEvents /></ProtectedRoute>} />
           <Route path="/dashboard/student/workshops" element={<ProtectedRoute><StudentWorkshops /></ProtectedRoute>} />
+          <Route path="/dashboard/student/workshops/:id" element={<ProtectedRoute><StudentWorkshopDetail /></ProtectedRoute>} />
           <Route path="/dashboard/student/courses-all" element={<ProtectedRoute><StudentCoursesAll /></ProtectedRoute>} />
           <Route path="/dashboard/student/certificates" element={<ProtectedRoute><StudentCertificates /></ProtectedRoute>} />
           <Route path="/dashboard/student/courses" element={<ProtectedRoute><StudentCoursesDashboard /></ProtectedRoute>} />

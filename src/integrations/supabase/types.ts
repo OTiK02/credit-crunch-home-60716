@@ -199,6 +199,44 @@ export type Database = {
         }
         Relationships: []
       }
+      feedback: {
+        Row: {
+          content: string | null
+          created_at: string | null
+          id: string
+          rating: number | null
+          suggestions: string | null
+          user_id: string
+          workshop_id: string
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string | null
+          id?: string
+          rating?: number | null
+          suggestions?: string | null
+          user_id: string
+          workshop_id: string
+        }
+        Update: {
+          content?: string | null
+          created_at?: string | null
+          id?: string
+          rating?: number | null
+          suggestions?: string | null
+          user_id?: string
+          workshop_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "feedback_workshop_id_fkey"
+            columns: ["workshop_id"]
+            isOneToOne: false
+            referencedRelation: "workshops"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       group_members: {
         Row: {
           group_id: string
@@ -292,6 +330,50 @@ export type Database = {
           updated_at?: string | null
         }
         Relationships: []
+      }
+      mentorship_requests: {
+        Row: {
+          admin_notes: string | null
+          created_at: string | null
+          id: string
+          idea_description: string
+          idea_title: string
+          status: string | null
+          updated_at: string | null
+          user_id: string
+          workshop_id: string | null
+        }
+        Insert: {
+          admin_notes?: string | null
+          created_at?: string | null
+          id?: string
+          idea_description: string
+          idea_title: string
+          status?: string | null
+          updated_at?: string | null
+          user_id: string
+          workshop_id?: string | null
+        }
+        Update: {
+          admin_notes?: string | null
+          created_at?: string | null
+          id?: string
+          idea_description?: string
+          idea_title?: string
+          status?: string | null
+          updated_at?: string | null
+          user_id?: string
+          workshop_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "mentorship_requests_workshop_id_fkey"
+            columns: ["workshop_id"]
+            isOneToOne: false
+            referencedRelation: "workshops"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       profiles: {
         Row: {
@@ -618,7 +700,9 @@ export type Database = {
           created_at: string | null
           description: string | null
           id: string
+          is_active: boolean | null
           points: number | null
+          start_time: string | null
           task_order: number
           timer_minutes: number | null
           title: string
@@ -629,7 +713,9 @@ export type Database = {
           created_at?: string | null
           description?: string | null
           id?: string
+          is_active?: boolean | null
           points?: number | null
+          start_time?: string | null
           task_order: number
           timer_minutes?: number | null
           title: string
@@ -640,7 +726,9 @@ export type Database = {
           created_at?: string | null
           description?: string | null
           id?: string
+          is_active?: boolean | null
           points?: number | null
+          start_time?: string | null
           task_order?: number
           timer_minutes?: number | null
           title?: string
